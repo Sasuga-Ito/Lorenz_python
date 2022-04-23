@@ -45,10 +45,10 @@ class Lorenz63():
 		dt = self.dt
 
 		# time integration using 4th order Runge-Kutta
-		for t in self.tt:
+		for _ in self.tt:
 			k1 = self.cal_lnz(xyz)
 			k2 = self.cal_lnz(xyz+dt*k1*0.5)
-			k3 = self.cal_lnz(xyz+dt*k1*0.5)
+			k3 = self.cal_lnz(xyz+dt*k2*0.5)
 			k4 = self.cal_lnz(xyz+dt*k3)
 			xyz = xyz + dt*(k1+k2+k3+k4)/6
 			xk.append(xyz[0])
